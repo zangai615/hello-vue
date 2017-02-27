@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue.js</title>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			
+		</div>
+		<div id="app">
+			<h3>v-model</h3>
+			<input v-model="newtodo" />
+			<h3>v-on:click</h3>
+			<button v-on:click="addtodo">添加</button>
+			<div>
+				<h3>v-for</h3>
+				<ul >
+					<li v-for="todo in todos">
+						<span>{{todo.title}}</span>
+					</li>
+				</ul>
+			</div>
+			<div >
+				<h3>v-if</h3>
+				<span v-if="seen">是中文呢</span>
+				<h3>v-else</h3>
+				<span v-else="seen">不是中文</span>
+			</div>
+			<input v-model="newMytodo" />
+			<button v-on:click="addMytodo">添加</button>
+			<div>
+				<ul >
+					<li v-for="todoMy in Mytodos">
+						<span>{{todoMy.mytitle}}</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div>
+				<h3>component-todo</h3>
+				<ol>
+				<!--todo是关键字，todo-item也是-->
+					<todo-item v-for="item in Mytodos" v-bind:todo="item"></todo-item>
+				</ol>
+			</div>
+			<div>
+				<h3>v-html</h3>
+				<span v-html="rawhtml"></span>
+			</div>
+		</div>
+		
+		<script>
+		Vue.component("todo-item",{
+			props:['todo'],
+			template:"<li>{{todo.mytitle}}</li>"
+		})
+			new Vue({
+				el:"#app",
+				data:{
+					newtodo:"",
+					newMytodo:"",
+					todos:[{
+						title:"hello vue"
+					}],
+					Mytodos:[{
+						mytitle:"mytodos"
+					}],
+					seen:false,
+					rawhtml:""
+				},
+				methods:{
+					addtodo:function(){
+						var title=this.newtodo.trim()
+						if(title){
+							this.todos.push({title:title})
+							this.rawhtml="<p>"+title+"</p>"
+						}
+						if(/^[\u4e00-\u9fa5]+$/g.test(title)){
+							this.seen=true
+						}
+						this.newtodo=""
+					},
+					addMytodo:function(){
+						var mytitle=this.newMytodo.trim()
+						if(mytitle){
+							this.Mytodos.push({mytitle:mytitle})
+						}
+						this.newMytodo=""
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
