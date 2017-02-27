@@ -1,0 +1,12 @@
+ssh-keygen -t rsa -C "931@qq.com" 一直回车
+$ ssh -T git@github.com  生成id_rsa.pub文件，里面 key复制到github网站setting项中的SSH key,
+$ git config --global user.name "yyong"  
+$ git config --global user.email "931@qq.com"
+$ git remote add origin git@github.com:yourName/yourRepo.git  
+$ git init    初始化
+$ git add 文件夹名称
+$ touch  README.md  创建README文件
+$ git add README.md     添加README文件
+$ git commit -m "first commit"
+$ git remote add origin git@github.com:yourName/yourRepo.git
+$ git push -u origin master
