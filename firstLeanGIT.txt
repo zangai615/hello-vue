@@ -9,4 +9,10 @@ $ touch  README.md   创建README文件
 $ git add README.md     添加README文件
 $ git commit -m "first commit"   ""双引号里面的是每次提交的注释
 $ git remote add origin git@github.com:yourName/yourRepo.git
-$ git push -u origin master     
+$ git push -u origin master  
+
+删除
+
+$git rm -r '文件名'   删除本地某文件夹
+$git add --all  提交下面所有文件
+   
