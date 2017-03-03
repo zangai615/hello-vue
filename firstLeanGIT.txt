@@ -4,9 +4,9 @@ $ git config --global user.name "yyong"
 $ git config --global user.email "931@qq.com"
 $ git remote add origin git@github.com:yourName/yourRepo.git  
 $ git init    初始化
-$ git add 文件夹名称
-$ touch  README.md  创建README文件
+$ git add  文件夹名称    添加文件名称
+$ touch  README.md   创建README文件
 $ git add README.md     添加README文件
-$ git commit -m "first commit"
+$ git commit -m "first commit"   ""双引号里面的是每次提交的注释
 $ git remote add origin git@github.com:yourName/yourRepo.git
-$ git push -u origin master
+$ git push -u origin master     
